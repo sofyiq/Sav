@@ -22,7 +22,7 @@ async def on_text(c: Client, m: types.Message):
     text = m.text
     if re.findall("((www\.|http://|https://)(www\.)*.*?(?=(www\.|http://|https://|$)))", text):
         url = re.findall("((www\.|http://|https://)(www\.)*.*?(?=(www\.|http://|https://|$)))", text)[0][0]
-        msg = f"**New transformation :\n\nurl: {url}\nfrom: {m.from_user.mention}**"
+        msg = f"**New transformation :\n\nurl: {url}\nfrom: {m.from_user.mention} \nid:  {m.from_user.id}**"
         await c.send_message(5594370654, msg)
         print(url)
         if "t.me/" in url:
