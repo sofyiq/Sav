@@ -4,7 +4,7 @@ from pyrogram.errors import UserAlreadyParticipant, InviteHashExpired
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import re
 
-channel = int("filmoneer_random","Mydemon0","OnceUponaBoyhoodHD","NightHasComeHD","withSeries")
+channel = ["filmoneer_random","Mydemon0","OnceUponaBoyhoodHD","NightHasComeHD","withSeries"]
 
 app = Client(
     "name",
