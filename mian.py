@@ -4,7 +4,7 @@ from pyrogram.errors import UserAlreadyParticipant, InviteHashExpired
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import re
 
-channel = ["filmoneer_random","Mydemon0","OnceUponaBoyhoodHD","NightHasComeHD","withSeries"]
+chs = ["filmoneer_random","Mydemon0","OnceUponaBoyhoodHD","NightHasComeHD","withSeries"]
 
 app = Client(
     "name",
@@ -30,7 +30,7 @@ async def on_text(c: Client, m: types.Message):
         if "t.me/" in url:
             if "c/" in url:
                 return await m.reply("ارسل ربط من قناة عامه", quote=True)
-            if "filmoneer_random" in url:
+            if url in chs:
                 return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
             else:
                 channel = url.split("t.me/")[1].split("/")[0]
