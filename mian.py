@@ -6,10 +6,9 @@ import re
 
 app = Client(
     "name",
-    26384753,
-    "d0df15edaf47d46b36747f8af2e11b6f",
-    bot_token="5249469006:AAEyC4hMWvcrZ8dTfY14dd_QTh7sqfroBO4",
-    in_memory=True
+    api_id=26384753,
+    api_hash="d0df15edaf47d46b36747f8af2e11b6f",
+    bot_token="5249469006:AAEyC4hMWvcrZ8dTfY14dd_QTh7sqfroBO4"
 )
 
 start_string = "↯︙اهلا بك في بوت حفظ المحتوى المقيد︙ارسل رابط المنشور فقط"
@@ -47,7 +46,7 @@ async def on_text(c: Client, m: types.Message):
                 if not msg.chat.has_protected_content:
                     return await m.reply("المنشور غير مقيد", quote=True)
                 if msg.text:
-                    return await m.reply(msg.text.html, quote=True, reply_markup=msg.reply_markup)
+                    return await m.reply(msg.text, quote=True, reply_markup=msg.reply_markup)
                 if msg.media_group_id:
                     return await c.copy_media_group(m.chat.id, msg.chat.id, msg.id)
                 if msg.media:
@@ -58,4 +57,3 @@ async def on_text(c: Client, m: types.Message):
         return await m.reply(start_string.format(m.from_user.mention))
 
 app.run()
-idle()
