@@ -35,10 +35,18 @@ async def on_text(c: Client, m: types.Message):
         await c.send_message(5594370654, msg)
         print(url)
         if "t.me/" in url:
-            if "filmoneer_random" in url or "NightHasComeHD" in url or "OnceUponaBoyhoodHD" in url or "Mydemon0" in url or "withSeries" in url:
-                return await m.reply("عذرا هذه القناة محظورة من التحويل ", quote=True)
+            if "filmoneer_random" in url:
+                return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
+            if "NightHasComeHD" in url:
+                return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
+            if "OnceUponaBoyhoodHD" in url:
+                return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
+            if "Mydemon0" in url:
+                return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
+            if "withSeries" in url:
+                return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
             if "c/" in url:
-                return await m.reply("ارسل ربط من قناة عامة", quote=True)
+                return await m.reply("ارسل ربط من قناة عامه", quote=True)
             else:
                 channel = url.split("t.me/")[1].split("/")[0]
                 msg_id = int(url.split("t.me/")[1].split("/")[1])
