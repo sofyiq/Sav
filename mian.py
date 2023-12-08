@@ -1,9 +1,8 @@
 import pyrogram
-from pyrogram import Client, filters, idle, types 
+from pyrogram import Client, filters, types
 from pyrogram.errors import UserAlreadyParticipant, InviteHashExpired
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import re
-
 
 app = Client(
     "name",
@@ -13,36 +12,35 @@ app = Client(
     in_memory=True
 )
 
+start_string = "↯︙اهلا بك في بوت حفظ المحتوى المقيد︙ارسل رابط المنشور فقط"
+
 
 @app.on_message(filters.command(["start"]))
-def send_start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
-	app.send_message(message.chat.id, f"↯︙اهلا بك في بوت حفظ المحتوى المقيد︙ارسل رابط المنشور فقط",
-	reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("⦗ Dev SoFe ⦘", url="https://t.me/SoFe_Iraq")]]), reply_to_message_id=message.id)()
-	
-        
+def send_start(client: pyrogram.Client, message: pyrogram.types.Message):
+    app.send_message(
+        message.chat.id,
+        start_string,
+        reply_markup=InlineKeyboardMarkup(
+            [[InlineKeyboardButton("⦗ Dev SoFe ⦘", url="https://t.me/SoFe_Iraq")]]
+        ),
+        reply_to_message_id=message.message_id
+    )
+
+
 @app.on_message(filters.text & filters.private)
 async def on_text(c: Client, m: types.Message):
     text = m.text
     if re.findall("((www\.|http://|https://)(www\.)*.*?(?=(www\.|http://|https://|$)))", text):
         url = re.findall("((www\.|http://|https://)(www\.)*.*?(?=(www\.|http://|https://|$)))", text)[0][0]
         msg = f"**New transformation :\n\nurl: {url}\nfrom: {m.from_user.mention} \nid:  {m.from_user.id}**"
-        await c.send_message(5594370654,msg)
+        await c.send_message(5594370654, msg)
         print(url)
         if "t.me/" in url:
-            if "filmoneer_random" in url:
-                return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
-            if "NightHasComeHD" in url:
-                return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
-            if "OnceUponaBoyhoodHD" in url:
-                return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
-            if "Mydemon0" in url:
-                return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
-            if "withSeries" in url:
-                return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
+            if "filmoneer_random" in url or "NightHasComeHD" in url or "OnceUponaBoyhoodHD" in url or "Mydemon0" in url or "withSeries" in url:
+                return await m.reply("عذرا هذه القناة محظورة من التحويل ", quote=True)
             if "c/" in url:
-                return await m.reply("ارسل ربط من قناة عامه", quote=True)
+                return await m.reply("ارسل ربط من قناة عامة", quote=True)
             else:
-              
                 channel = url.split("t.me/")[1].split("/")[0]
                 msg_id = int(url.split("t.me/")[1].split("/")[1])
                 msg = await c.get_messages(channel, msg_id)
