@@ -41,7 +41,7 @@ async def on_text(c: Client, m: types.Message):
                 return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
             if "OnceUponaBoyhoodHD" in url:
                 return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
-            if "Mydemon0" in url:
+            if "MyDemon0" in url:
                 return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
             if "withSeries" in url:
                 return await m.reply("عذرا هذه القناة محظوره من التحويل ", quote=True)
