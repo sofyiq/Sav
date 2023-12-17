@@ -36,8 +36,8 @@ token = Config.TG_BOT_TOKEN #البوت
 
 bot = Client(
   'bot'+token.split(":")[0],
-  19312827, #ايبي ايدي
- '84da7f08e87849853b2fa6728e4192a2', #ايبي هاش
+  26384753, #ايبي ايدي
+ 'd0df15edaf47d46b36747f8af2e11b6f', #ايبي هاش
   bot_token=token, in_memory=True
 )
 app = Client(
