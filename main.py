@@ -36,10 +36,11 @@ token = Config.TG_BOT_TOKEN #البوت
 
 bot = Client(
   'bot'+token.split(":")[0],
-  26384753, #ايبي ايدي
- 'd0df15edaf47d46b36747f8af2e11b6f', #ايبي هاش
-  bot_token=token, in_memory=True
+  19312827, #ايبي ايدي
+ '84da7f08e87849853b2fa6728e4192a2', #ايبي هاش
+ bot_token="5249469006:AAEyC4hMWvcrZ8dTfY14dd_QTh7sqfroBO4"
 )
+
 app = Client(
   name="savebot",
   api_id=api_id, api_hash=api_hash,
